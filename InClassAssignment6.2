@@ -1,0 +1,45 @@
+#include<iostream>
+#include<string>
+#include<cstdio>
+
+int main (int arg, char ** argv)
+{
+    int n = 0;
+    int k = 0;
+    int counter = 0;
+
+    std::cout << "Please enter the amount of intergers you wish to compare(n): " << std::endl;
+    std::cin >> n;
+
+    int ar[n];
+
+    std::cout << "please enter the number you wish to divide the pairings by(k): " << std::endl;
+    std::cin >> k;
+
+    for(int i = 0; i < n; i++)
+    {
+        std::cout << "Please enter an interger to be added to the array: " << std::endl;
+        std::cin >> ar[i];
+    }
+
+
+    for(int i = 0; i < n; i++)
+    {
+        int nextval = i + 1;
+        int length = n - i;
+
+        for(int x = 1; x < length; x++)
+        {
+            if((ar[i] + ar[nextval]) % k == 0)
+            {
+                counter++;
+            }
+
+            nextval++;
+        }
+
+    }
+
+
+    std::cout << counter;
+}
