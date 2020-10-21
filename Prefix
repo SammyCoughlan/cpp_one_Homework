@@ -1,0 +1,36 @@
+#include<vector>
+#include <iostream>
+#include <set>
+#include <string>
+
+int main()
+{
+	std::string ThreeWords[3];
+
+	std::cout << "Type three words to compare \n" << std::endl;
+
+	std::cin >> ThreeWords[0];
+	std::cin >> ThreeWords[1];
+	std::cin >> ThreeWords[2];
+
+	ThreeWords[0] = ThreeWords[0] + "~";
+	ThreeWords[1] = ThreeWords[1] + "`";
+	ThreeWords[2] = ThreeWords[2] + "^";
+
+	std::string Matching = "                                                                                                    ";
+
+	for (int i = 0; i < 100; i++)
+	{
+		if (ThreeWords[0].at(i) == ThreeWords[1].at(i) && ThreeWords[0].at(i) == ThreeWords[2].at(i))
+		{
+			Matching.at(i) = ThreeWords[0].at(i);
+		}
+		else
+		{
+			i = 101;
+		}
+	}
+
+	std::cout << "this is what matches for what you typed \n" << std::endl;
+	std::cout << Matching << std::endl;
+}
