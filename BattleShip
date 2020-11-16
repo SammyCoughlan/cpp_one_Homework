@@ -1,0 +1,68 @@
+#include <iostream>
+#include <string>
+#include <cstdlib>
+using namespace std;
+
+int boardSize;
+bool Ship;
+bool tooclose = false;
+int ShipCounter = 5;
+int SpaceCounter = 4;
+int ran;
+
+
+int main()
+{
+    srand (time(NULL));
+
+    cout<< "Please enter the size of the board (this should only be one number): " << endl;
+    cin >> boardSize;
+
+    for(int i = 0; i < boardSize; i++)
+    {
+        for(int r = 0; r < boardSize; r++)
+        {
+
+            if(SpaceCounter <= 3)
+            {
+                tooclose = true;
+            }else
+            {
+                tooclose = false;
+            }
+
+
+            int ran = rand() % 2;
+            if(ran == 1 || !tooclose)
+            {
+                if(ShipCounter != 0)
+                {
+                    Ship = true;
+                    SpaceCounter = 0;
+                    ShipCounter--;
+                }
+
+            }else if (ran == 1 || tooclose)
+            {
+                Ship = false;
+                SpaceCounter++;
+            }else
+            {
+                Ship = false;
+            }
+
+            if(Ship)
+            {
+                cout << " X ";
+            }else
+            {
+                cout << " O ";
+            }
+            
+            
+
+        }
+        cout << "\n";
+
+    }
+}
